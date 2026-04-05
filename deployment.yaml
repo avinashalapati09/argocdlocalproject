@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocdlocalproject
+  namespace: default
+  labels:
+    app: argocdlocalproject
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: argocdlocalproject
+  template:
+    metadata:
+      labels:
+        app: argocdlocalproject
+    spec:
+      containers:
+        - name: argocdlocalproject
+          image: nginx:latest
+          ports:
+            - containerPort: 80
